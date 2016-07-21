@@ -11,9 +11,12 @@ import CoreData
 
 class DataStore {
     
-    var messages:[Message] = []
-    
     static let sharedDataStore = DataStore()
+    
+    var messages:[Message] = []
+    var recipients: [Recipient] = []
+    
+    
     
     
     // MARK: - Core Data Saving support
@@ -32,25 +35,27 @@ class DataStore {
         }
     }
     
-    func fetchData ()
-    {
-        
-        var error:NSError? = nil
+    func fetchData () {
         
         let messagesRequest = NSFetchRequest(entityName: "Message")
+        let recipientRequest = NSFetchRequest(entityName: "Recipient")
         
         let createdAtSorter = NSSortDescriptor(key: "createdAt", ascending:true)
+        let recipientNameSorter = NSSortDescriptor(key: "name", ascending: true)
         
         messagesRequest.sortDescriptors = [createdAtSorter]
+        recipientRequest.sortDescriptors = [recipientNameSorter]
         
-        do{
+        do {
             messages = try managedObjectContext.executeFetchRequest(messagesRequest) as! [Message]
-        }catch let nserror1 as NSError{
-            error = nserror1
+            recipients = try managedObjectContext.executeFetchRequest(recipientRequest) as! [Recipient]
+        } catch let error as NSError{
+            print("Error loading Core Data: \(error.localizedDescription)")
             messages = []
+            recipients = []
         }
         
-        if messages.count == 0 {
+        if messages.count == 0 || recipients.count == 0 {
             generateTestData()
         }
         
@@ -73,6 +78,35 @@ class DataStore {
         
         messageThree.content = "Message 3"
         messageThree.createdAt = NSDate()
+        
+        
+        let recipientOne = NSEntityDescription.insertNewObjectForEntityForName("Recipient", inManagedObjectContext: managedObjectContext) as! Recipient
+        
+        recipientOne.name = "Joe"
+        recipientOne.email = "joe@flatironschool.com"
+        recipientOne.phoneNumber = "911"
+        recipientOne.twitterHandle = "idk what the hell is this"
+        recipientOne.messages = Set([messageOne, messageTwo])
+        
+        let recipientTwo = NSEntityDescription.insertNewObjectForEntityForName("Recipient", inManagedObjectContext: managedObjectContext) as! Recipient
+        
+        recipientTwo.name = "Ian"
+        recipientTwo.email = "ian@flatironschool.com"
+        recipientTwo.phoneNumber = "311"
+        recipientTwo.twitterHandle = "still idk wtf is it"
+        recipientTwo.messages = Set([messageThree])
+        
+        let recipientThree = NSEntityDescription.insertNewObjectForEntityForName("Recipient", inManagedObjectContext: managedObjectContext) as! Recipient
+        
+        recipientThree.name = "May"
+        recipientThree.email = "may@flatironschool.com"
+        recipientThree.phoneNumber = "1-888-ANYISSUES"
+        recipientThree.messages = []
+        
+        
+        messageOne.recipient = recipientOne
+        messageTwo.recipient = recipientOne
+        messageThree.recipient = recipientTwo
         
         saveContext()
         fetchData()

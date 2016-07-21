@@ -13,9 +13,12 @@
 		1B85930E1D3D2D660051D343 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B85930D1D3D2D660051D343 /* Assets.xcassets */; };
 		1B8593111D3D2D660051D343 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B85930F1D3D2D660051D343 /* LaunchScreen.storyboard */; };
 		1B8593191D3D2DC70051D343 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8593181D3D2DC70051D343 /* DataStore.swift */; };
-		1B85931C1D3D2E420051D343 /* Message+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B85931A1D3D2E420051D343 /* Message+CoreDataProperties.swift */; };
-		1B85931D1D3D2E420051D343 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B85931B1D3D2E420051D343 /* Message.swift */; };
 		1B85931F1D3D2EAD0051D343 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B85931E1D3D2EAD0051D343 /* TableViewController.swift */; };
+		8ED008F21D41355A00853177 /* RecipientTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED008F11D41355A00853177 /* RecipientTableViewController.swift */; };
+		8ED008F71D41385500853177 /* Recipient+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED008F31D41385500853177 /* Recipient+CoreDataProperties.swift */; };
+		8ED008F81D41385500853177 /* Recipient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED008F41D41385500853177 /* Recipient.swift */; };
+		8ED008F91D41385500853177 /* Message+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED008F51D41385500853177 /* Message+CoreDataProperties.swift */; };
+		8ED008FA1D41385500853177 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED008F61D41385500853177 /* Message.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,9 +30,12 @@
 		1B8593101D3D2D660051D343 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B8593121D3D2D660051D343 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B8593181D3D2DC70051D343 /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
-		1B85931A1D3D2E420051D343 /* Message+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Message+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		1B85931B1D3D2E420051D343 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		1B85931E1D3D2EAD0051D343 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		8ED008F11D41355A00853177 /* RecipientTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipientTableViewController.swift; sourceTree = "<group>"; };
+		8ED008F31D41385500853177 /* Recipient+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Recipient+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8ED008F41D41385500853177 /* Recipient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipient.swift; sourceTree = "<group>"; };
+		8ED008F51D41385500853177 /* Message+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Message+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8ED008F61D41385500853177 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,14 +70,17 @@
 			children = (
 				1B8593031D3D2D660051D343 /* AppDelegate.swift */,
 				1B8593181D3D2DC70051D343 /* DataStore.swift */,
-				1B85931A1D3D2E420051D343 /* Message+CoreDataProperties.swift */,
-				1B85931B1D3D2E420051D343 /* Message.swift */,
 				1B85931E1D3D2EAD0051D343 /* TableViewController.swift */,
+				8ED008F11D41355A00853177 /* RecipientTableViewController.swift */,
+				8ED008F41D41385500853177 /* Recipient.swift */,
+				8ED008F61D41385500853177 /* Message.swift */,
 				1B8593071D3D2D660051D343 /* Main.storyboard */,
-				1B85930D1D3D2D660051D343 /* Assets.xcassets */,
 				1B85930F1D3D2D660051D343 /* LaunchScreen.storyboard */,
 				1B8593121D3D2D660051D343 /* Info.plist */,
+				1B85930D1D3D2D660051D343 /* Assets.xcassets */,
 				1B85930A1D3D2D660051D343 /* SlapChat.xcdatamodeld */,
+				8ED008F51D41385500853177 /* Message+CoreDataProperties.swift */,
+				8ED008F31D41385500853177 /* Recipient+CoreDataProperties.swift */,
 			);
 			path = SlapChat;
 			sourceTree = "<group>";
@@ -148,11 +157,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B85930C1D3D2D660051D343 /* SlapChat.xcdatamodeld in Sources */,
+				8ED008F21D41355A00853177 /* RecipientTableViewController.swift in Sources */,
 				1B85931F1D3D2EAD0051D343 /* TableViewController.swift in Sources */,
+				8ED008FA1D41385500853177 /* Message.swift in Sources */,
+				8ED008F71D41385500853177 /* Recipient+CoreDataProperties.swift in Sources */,
 				1B8593191D3D2DC70051D343 /* DataStore.swift in Sources */,
-				1B85931D1D3D2E420051D343 /* Message.swift in Sources */,
-				1B85931C1D3D2E420051D343 /* Message+CoreDataProperties.swift in Sources */,
 				1B8593041D3D2D660051D343 /* AppDelegate.swift in Sources */,
+				8ED008F91D41385500853177 /* Message+CoreDataProperties.swift in Sources */,
+				8ED008F81D41385500853177 /* Recipient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +314,7 @@
 				1B8593171D3D2D660051D343 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -10,58 +10,46 @@ import UIKit
 
 class TableViewController: UITableViewController {
 
-    
-    var managedMessageObjects: [Message] = []
     let store: DataStore = DataStore()
+    var recipient: Recipient?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        store.fetchData()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
-        
-        
     }
     
+    
     override func viewWillAppear(animated: Bool) {
-        
-        super.viewWillAppear(true)
+        super.viewWillAppear(animated)
         
         store.fetchData()
         tableView.reloadData()
-        
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    // MARK: - Table view data source
+
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return store.messages.count
+        if let recipient = self.recipient {
+            return recipient.messages.count
+        }
+        return 0
     }
     
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCellWithIdentifier("basicCell", forIndexPath: indexPath)
         
-        let eachMessage = store.messages[indexPath.row]
-        
-        cell.textLabel?.text = eachMessage.content
+        if let recipient = self.recipient {
+            let messages = Array(recipient.messages)
+            cell.textLabel?.text = messages[indexPath.row].content
+        }
         
         return cell
     }
+    
+    
 }

@@ -1,5 +1,5 @@
 //
-//  Message.swift
+//  Recipient.swift
 //  SlapChat
 //
 //  Created by Max Tkach on 7/21/16.
@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 
-class Message: NSManagedObject {
+class Recipient: NSManagedObject {
 
 // Insert code here to add functionality to your managed object subclass
 
